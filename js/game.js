@@ -73,6 +73,12 @@ var Ufo1 = function(jObject){
 var start = false;
 var down = false;
 
+$('#addressInput').keypress(function(e){
+	if(e.keyCode == 13){
+		$('#addressButton').click();
+	}
+});
+
 $('#playButton').mousedown(function(){
 	$(this).hide();
 	$('#gameOver').hide();
