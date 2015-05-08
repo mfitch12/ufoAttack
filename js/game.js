@@ -92,6 +92,7 @@ $('#newLocation').click(function(){
 
 $('#gameBoard').mousemove(fireWeapon);
 $('#gameBoard').click(moveShipClick);
+$('.ufo1').click(moveShipClick);
 
 $(document).keydown(function(e){
 	if(e.keyCode == 16){
