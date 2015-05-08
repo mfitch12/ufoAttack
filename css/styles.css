@@ -132,9 +132,15 @@ body {
   text-align: center;
 }
 
+.disclaimer {
+  width: 60%;
+  margin: auto;
+  margin-top: 5em;
+}
+
 .addressSearch {
   width: 50%;
-  margin: 10% 25% 0 25%;
+  margin: 5% 25% 0 25%;
 }
 .addressSearch input {
   font-size: 2em;
