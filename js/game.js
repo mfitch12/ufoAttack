@@ -174,7 +174,7 @@ function moveShipClick(evt){
 					$(tempThis).stop();
 					$(tempThis).animate({left: mouseX-50, top: mouseY-50}, speed, 'linear');
 				//}, 300);
-			
+
 		});	
 		}
 		else{
@@ -221,10 +221,6 @@ function attackShip(){
 					//console.log('ufoX: ' + ufo1X + '   ufoY: ' + ufo1Y);
 					//console.log('shipX: ' + shipX + '   shipY: ' + shipY);
 					if( (Math.abs(ufo1X - shipX) < 70) && (Math.abs(ufo1Y - shipY) < 70) ){
-						console.log('collision');
-						console.log('shipX: '+ shipX + '   shipY: '+shipY);
-						console.log('ufoX: '+ ufo1X + '   ufoY: '+ufo1Y);
-
 						$('.userShip').stop();
 						//setTimeout(function(){
 							$('.ufo1').stop();
@@ -234,7 +230,7 @@ function attackShip(){
 			$('#resetButton').show();
 			$('#newLocation').show();
 		}
-		
+
 	});
 
 		}
@@ -256,7 +252,6 @@ function attackShip(){
 						var ufoX = parseFloat($(this).position()['left']) + 50;
 						var ufoY = parseFloat($(this).position()['top']) + 50;
 						if( (Math.abs(ufoX - missileX) < 50) && (Math.abs(ufoY - missileY) < 50) ){
-							console.log('hit');
 							$(tempThis).remove();
 							$(this).remove();
 							aliensKilled++;
@@ -273,9 +268,7 @@ function attackShip(){
 
 (function incomingUfo(){
 	if(start == true){
-		console.log('incoming: ' + incomingInterval);
 		var rando = Math.floor(Math.random() * 5) + 1;
-		console.log(ufo1Array.length);
 		var length = ufo1Array.length;
 
 		for(var i = length; i < length + rando; i++){
