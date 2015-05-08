@@ -257,6 +257,7 @@ body {
   background-image: url("../img/userShip.png");
   width: 100px;
   height: 100px;
+  z-index: 100;
 }
 
 .ufo1 {
