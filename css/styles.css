@@ -177,11 +177,19 @@ body {
   margin: auto;
 }
 
+.footer {
+  width: 50%;
+  margin: auto;
+  margin-top: 3em;
+  text-align: center;
+}
+
 #addressButton {
   font-size: 2em;
 }
 
 #playButton {
+  z-index: 101;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
   opacity: 0.6;
   padding-top: 15px;
@@ -204,6 +212,7 @@ body {
 }
 
 #resetButton {
+  z-index: 101;
   display: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
   opacity: 0.6;
@@ -227,6 +236,7 @@ body {
 }
 
 #newLocation {
+  z-index: 101;
   display: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
   opacity: 0.6;
@@ -250,6 +260,7 @@ body {
 }
 
 #gameOver {
+  z-index: 101;
   display: none;
   position: absolute;
   left: 400px;

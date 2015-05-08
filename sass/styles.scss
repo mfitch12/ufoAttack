@@ -119,11 +119,19 @@ body{
 	
 }
 
+.footer{
+	width: 50%;
+	margin: auto;
+	margin-top: 3em;
+	text-align: center;	
+}
+
 #addressButton{
 	font-size: 2em;
 }
 
 #playButton{
+	z-index: 101;
 	@include opacity(0.6);
 	padding-top: 15px;
 	cursor: pointer;
@@ -144,6 +152,7 @@ body{
 }
 
 #resetButton{
+	z-index: 101;
 	display:none;
 	@include opacity(0.6);
 	padding-top: 15px;
@@ -165,6 +174,7 @@ body{
 }
 
 #newLocation{
+	z-index: 101;
 	display:none;
 	@include opacity(0.6);
 	padding-top: 15px;
@@ -186,6 +196,7 @@ body{
 }
 
 #gameOver{
+	z-index: 101;
 	display:none;
 	position: absolute;
 	left: 400px;
@@ -226,6 +237,8 @@ body{
 	@include border-radius(50%);
 	pointer-events: none;
 }
+
+
 
 
 

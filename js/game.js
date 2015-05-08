@@ -27,6 +27,7 @@ $(document).ready(function(){
 				var lon = location['F'];
 				initialize(lat, lon);
 				$('.addressSearch').hide();
+				$('.footer').hide();
 				$('#map-canvas').show();
 				$('#gameBoard').show();
 				$('#scoreBox').show();
@@ -47,6 +48,7 @@ $(document).ready(function(){
 				var lon = location['F'];
 				initialize(lat, lon);
 				$('.addressSearch').hide();
+				$('.footer').hide();
 				$('#map-canvas').show();
 				$('#gameBoard').show();
 				$('#scoreBox').show();
