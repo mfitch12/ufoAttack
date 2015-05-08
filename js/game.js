@@ -66,7 +66,7 @@ var Ufo1 = function(jObject){
 	this.speed = Math.floor(Math.random() * 5000) + 2000;
 	this.top = 700;
 	this.left = Math.floor(Math.random() * 1300) + -100;
-	$('#gameBoard').append("<div class='ufo1' style='left: "+this.left+"px; top: "+this.top+"px;'></div>");
+	$('#gameBoard').append("<div class='ufo1' data-speed='"+this.speed+"'style='left: "+this.left+"px; top: "+this.top+"px;'></div>");
 };
 
 
@@ -120,9 +120,6 @@ function resetGame(){
 	aliensKilled = 0;
 	$('#aliensKilled')[0].innerHTML = aliensKilled;
 	$('.userShip').css({left: '550px', top: '-100px', transform: 'rotate(0deg)'});
-	$('.ufo1').each(function(i){
-		$(this).css({left: ufo1Array[i].left+'px', top: ufo1Array[i].top+'px'});
-	});
 	$('#playButton').show();
 	//setInterval(attackShip, 100);
 }
@@ -171,13 +168,14 @@ function moveShipClick(evt){
 			
 			$('.ufo1').each(function(i){
 				var tempThis = this;
+				var speed = parseFloat($(this).attr('data-speed'));
 				//var ufo1Speed = Math.floor(Math.random() * 5000) + 1000;
 				//setTimeout(function(){
 					$(tempThis).stop();
-					$(tempThis).animate({left: mouseX-50, top: mouseY-50}, ufo1Array[i].speed, 'linear');
+					$(tempThis).animate({left: mouseX-50, top: mouseY-50}, speed, 'linear');
 				//}, 300);
-				
-			});	
+			
+		});	
 		}
 		else{
 			$('.userShip').stop();
@@ -202,8 +200,9 @@ function attackShip(){
 		var shipX = parseFloat($('.userShip').position()['left']);
 		var shipY = parseFloat($('.userShip').position()['top']);
 		$('.ufo1').each(function(i){
+			var speed = parseFloat($(this).attr('data-speed'));
 			$(this).stop();
-			$(this).animate({left: shipX, top: shipY}, ufo1Array[i].speed, 'linear');
+			$(this).animate({left: shipX, top: shipY}, speed, 'linear');
 		});
 	}
 }
@@ -213,12 +212,12 @@ function attackShip(){
 	setInterval(function(){
 		if(start == true){
 			$('.ufo1').each(function(){
-				if($(this).css('display') != 'none'){
+				
 
-					var shipX = parseFloat($('.userShip').position()['left']) + 50;
-					var shipY = parseFloat($('.userShip').position()['top']) + 50;
-					var ufo1X = parseFloat($(this).position()['left']) + 50;
-					var ufo1Y = parseFloat($(this).position()['top']) + 50;
+				var shipX = parseFloat($('.userShip').position()['left']) + 50;
+				var shipY = parseFloat($('.userShip').position()['top']) + 50;
+				var ufo1X = parseFloat($(this).position()['left']) + 50;
+				var ufo1Y = parseFloat($(this).position()['top']) + 50;
 					//console.log('ufoX: ' + ufo1X + '   ufoY: ' + ufo1Y);
 					//console.log('shipX: ' + shipX + '   shipY: ' + shipY);
 					if( (Math.abs(ufo1X - shipX) < 70) && (Math.abs(ufo1Y - shipY) < 70) ){
@@ -230,13 +229,13 @@ function attackShip(){
 						//setTimeout(function(){
 							$('.ufo1').stop();
 						//},300);
-						start = false;
-						$('#gameOver').show();
-						$('#resetButton').show();
-						$('#newLocation').show();
-					}
-				}
-			});
+			start = false;
+			$('#gameOver').show();
+			$('#resetButton').show();
+			$('#newLocation').show();
+		}
+		
+	});
 
 		}
 	}, 50);
@@ -259,7 +258,7 @@ function attackShip(){
 						if( (Math.abs(ufoX - missileX) < 50) && (Math.abs(ufoY - missileY) < 50) ){
 							console.log('hit');
 							$(tempThis).remove();
-							$(this).hide();
+							$(this).remove();
 							aliensKilled++;
 							$('#aliensKilled')[0].innerHTML = aliensKilled;
 						}
