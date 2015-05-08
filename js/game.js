@@ -72,27 +72,26 @@ var Ufo1 = function(jObject){
 
 var start = false;
 var down = false;
-var mousedown = false;
 
-$('#playButton').click(function(){
+$('#playButton').mousedown(function(){
 	$(this).hide();
 	$('#gameOver').hide();
 	start = true;
 });
 
-$('#resetButton').click(function(){
+$('#resetButton').mousedown(function(){
 	$(this).hide();
 	$('#gameOver').hide();
 	resetGame();
 });
 
-$('#newLocation').click(function(){
+$('#newLocation').mousedown(function(){
 	window.location.href = "index.html";
 });
 
 $('#gameBoard').mousemove(fireWeapon);
-$('#gameBoard').click(moveShipClick);
-$('.ufo1').click(moveShipClick);
+$('#gameBoard').mousedown(moveShipClick);
+
 
 $(document).keydown(function(e){
 	if(e.keyCode == 16){
@@ -105,13 +104,6 @@ $(document).keyup(function(key) {
 		down = false;
 		$('#gameBoard').css('cursor', 'move');
 	}
-});
-
-$(document).mousedown(function(){
-	mousedown = true;
-});
-$(document).mouseup(function() {
-	mousedown = false;
 });
 
 function resetGame(){
@@ -152,6 +144,7 @@ function fireWeapon(evt){
 function moveShipClick(evt){
 	if(start == true)
 	{
+		//console.log(evt.target);
 		var parentOffset = $(this).offset();
 		var shipX = parseFloat($('.userShip').position()['left']) + 50;
 		var shipY = parseFloat($('.userShip').position()['top']) + 50;
@@ -159,13 +152,13 @@ function moveShipClick(evt){
 		var mouseY = evt['pageY'] - parentOffset.top;
 		var angleDeg = Math.atan2(mouseY - shipY, mouseX - shipX) * 180 / Math.PI + 90;
 		if(down == false){
-
+			$('.userShip').stop();
 
 			//angle ship towards mouse location
 			$('.userShip').css('transform', 'rotate(' + angleDeg + 'deg)')
 
 			//move ship to mouse location
-			$('.userShip').stop();
+			
 			$('.userShip').animate({left: mouseX-50, top: mouseY-50});
 
 			//move enemy ship to ship location
@@ -173,14 +166,15 @@ function moveShipClick(evt){
 			$('.ufo1').each(function(i){
 				var tempThis = this;
 				//var ufo1Speed = Math.floor(Math.random() * 5000) + 1000;
-				setTimeout(function(){
+				//setTimeout(function(){
 					$(tempThis).stop();
 					$(tempThis).animate({left: mouseX-50, top: mouseY-50}, ufo1Array[i].speed, 'linear');
-				}, 300);
+				//}, 300);
 				
 			});	
 		}
 		else{
+			$('.userShip').stop();
 			//console.log('bang');
 			var x1 = shipX;
 			var y1 = shipY;
@@ -227,9 +221,9 @@ function attackShip(){
 						console.log('ufoX: '+ ufo1X + '   ufoY: '+ufo1Y);
 
 						$('.userShip').stop();
-						setTimeout(function(){
+						//setTimeout(function(){
 							$('.ufo1').stop();
-						},300);
+						//},300);
 						start = false;
 						$('#gameOver').show();
 						$('#resetButton').show();
@@ -271,26 +265,6 @@ function attackShip(){
 	}, 50);
 })();
 
-/**
-(function incomingUfo(){
-	setInterval(function(){
-		if(start == true){
-			console.log('incoming: ' + incomingInterval);
-			var rando = Math.floor(Math.random() * 5) + 1;
-			console.log(ufo1Array.length);
-			var length = ufo1Array.length;
-
-			for(var i = length; i < length + rando; i++){
-				ufo1Array[ufo1Array.length] = new Ufo1;
-			}
-			attackShip();
-			incomingInterval = incomingInterval - 100;
-			
-			
-		}
-	}, incomingInterval);
-})();
-**/
 
 (function incomingUfo(){
 	if(start == true){
@@ -310,6 +284,8 @@ function attackShip(){
 	}
 	setTimeout(incomingUfo, incomingInterval);
 })();
+
+
 
 
 

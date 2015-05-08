@@ -208,6 +208,7 @@ body{
 	background-image: url("../img/ufo1.png");
 	width:100px;
 	height:100px;
+	pointer-events: none;
 }
 
 .missile{
@@ -216,6 +217,7 @@ body{
 	height: 20px;
 	background-color: red;
 	@include border-radius(50%);
+	pointer-events: none;
 }
 
 

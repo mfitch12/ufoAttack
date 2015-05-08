@@ -264,6 +264,7 @@ body {
   background-image: url("../img/ufo1.png");
   width: 100px;
   height: 100px;
+  pointer-events: none;
 }
 
 .missile {
@@ -274,6 +275,7 @@ body {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=styles.css.map */
