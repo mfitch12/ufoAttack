@@ -47,6 +47,9 @@ body{
 	margin: auto;
 	margin-top: 810px;
 	font-size: 2em;
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
 }
 
 #instructions{
@@ -59,6 +62,9 @@ body{
 	margin-top: 810px;
 	font-size: 1.5em;
 	text-align: right;
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
 }
 
 .preselectedLocation{
