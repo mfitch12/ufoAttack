@@ -7,7 +7,7 @@ var incomingInterval = 5000;
 function initialize(lat, lon) {
 	var mapOptions = {
 		center: { lat: lat, lng: lon},
-		zoom: 19,
+		zoom: 18,
 		disableDefaultUI: true,
 		mapTypeId: google.maps.MapTypeId.SATELLITE
 	};
@@ -21,6 +21,26 @@ $(document).ready(function(){
 	var location;
 	$('#addressButton').click(function(){
 		var address = $('#addressInput').prop('value');
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode( { 'address': address}, function(results, status){
+			if(status == google.maps.GeocoderStatus.OK){
+				location = results[0].geometry.location;
+				var lat = location['A'];
+				var lon = location['F'];
+				initialize(lat, lon);
+				$('.addressSearch').hide();
+				$('#map-canvas').show();
+				$('#gameBoard').show();
+				$('#scoreBox').show();
+				$('#instructions').show();
+			}
+			else{
+				alert("Unable to find location: " + status);
+			}
+		});
+	});
+	$('.preselectedLocation').click(function(){
+		var address = $(this).attr('data-loc');
 		var geocoder = new google.maps.Geocoder();
 		geocoder.geocode( { 'address': address}, function(results, status){
 			if(status == google.maps.GeocoderStatus.OK){

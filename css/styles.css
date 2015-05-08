@@ -112,6 +112,26 @@ body {
   text-align: right;
 }
 
+.preselectedLocation {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+  background-color: orange;
+  display: inline-block;
+  padding: .5em;
+  margin: .2em .1em;
+}
+.preselectedLocation:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  cursor: pointer;
+}
+
+.popOptions {
+  margin: auto;
+  width: 90%;
+  text-align: center;
+}
+
 .addressSearch {
   width: 50%;
   margin: 10% 25% 0 25%;

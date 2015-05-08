@@ -61,6 +61,24 @@ body{
 	text-align: right;
 }
 
+.preselectedLocation{
+	@include opacity(0.8);
+	background-color: orange;
+	display: inline-block;
+	padding: .5em;
+	margin: .2em .1em;
+	&:hover{
+		@include opaque;
+		cursor: pointer;
+	}
+}
+
+.popOptions{
+	margin:auto;
+	width: 90%;
+	text-align: center;
+}
+
 .addressSearch{
 	width: 50%;
 	margin: 10% 25% 0 25%;
