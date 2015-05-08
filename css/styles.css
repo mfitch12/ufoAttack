@@ -1,0 +1,253 @@
+@import url(http://fonts.googleapis.com/css?family=Amatic+SC:700|Orbitron);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+html, body, #map-canvas {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+}
+
+#map-canvas {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 1200px;
+  height: 700px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+#gameBoard {
+  display: none;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  width: 1200px;
+  height: 700px;
+  margin: auto;
+  margin-top: 100px;
+  cursor: move;
+}
+
+#scoreBox {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 1200px;
+  margin: auto;
+  margin-top: 800px;
+  font-size: 2em;
+}
+
+#instructions {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 1200px;
+  margin: auto;
+  margin-top: 800px;
+  font-size: 1.5em;
+  text-align: right;
+}
+
+.addressSearch {
+  width: 50%;
+  margin: 10% 25% 0 25%;
+}
+.addressSearch input {
+  font-size: 2em;
+  width: 100%;
+}
+.addressSearch h1 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 5em;
+  font-weight: bold;
+  text-align: center;
+}
+.addressSearch h2 {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 1em;
+}
+.addressSearch h3 {
+  font-size: 1.2em;
+}
+.addressSearch img {
+  display: block;
+  margin: auto;
+}
+
+#addressButton {
+  font-size: 2em;
+}
+
+#playButton {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+  padding-top: 15px;
+  cursor: pointer;
+  position: absolute;
+  left: 500px;
+  top: 325px;
+  width: 200px;
+  height: 50px;
+  background-color: red;
+}
+#playButton h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+}
+#playButton:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+#resetButton {
+  display: none;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+  padding-top: 15px;
+  cursor: pointer;
+  position: absolute;
+  left: 380px;
+  top: 325px;
+  width: 200px;
+  height: 50px;
+  background-color: red;
+}
+#resetButton h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+}
+#resetButton:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+#newLocation {
+  display: none;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+  padding-top: 15px;
+  cursor: pointer;
+  position: absolute;
+  left: 620px;
+  top: 325px;
+  width: 200px;
+  height: 100px;
+  background-color: red;
+}
+#newLocation h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+}
+#newLocation:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+#gameOver {
+  display: none;
+  position: absolute;
+  left: 400px;
+  top: 275px;
+  width: 400px;
+  height: 50px;
+  color: red;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.userShip {
+  position: absolute;
+  left: 550px;
+  top: -100px;
+  background-image: url("../img/userShip.png");
+  width: 100px;
+  height: 100px;
+}
+
+.ufo1 {
+  position: absolute;
+  background-image: url("../img/ufo1.png");
+  width: 100px;
+  height: 100px;
+}
+
+.missile {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=styles.css.map */

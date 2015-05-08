@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+	
+	<div class="addressSearch">
+		<img src="img/ufo1.png">
+		<h1>UFO ATTACK!!!!</h1>
+		<h2>Where will your battle take place?</h2>
+		<h3>Enter any address or location in the world</h3>
+		<input id="addressInput" type="text">
+		<button id="addressButton">Enter</button>
+	</div>
+
+	<div id="map-canvas"></div>
+	<div id="gameBoard">
+		<div id="playButton"><h2>Start</h2></div>
+		<div id="resetButton"><h2>Reset</h2></div>
+		<div id="newLocation"><h2>New Location</h2></div>
+		<div id="gameOver"><h2>Game Over</h2></div>
+		<div class="userShip"></div>
+	</div>
+	<div id="scoreBox">UFOs Destroyed: <span id="aliensKilled">0</span></div>
+	<div id="instructions">click to move    /    shift-click to fire</div>
+	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTKm3S1AKxP7nLG_boHP5ZAf4XzFw9EnY" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="js/game.js" type="text/javascript"></script>	
+</body>
+</html>
+
